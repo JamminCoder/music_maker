@@ -107,6 +107,7 @@ sweet_child_o_mine = [
     Note('d6', beat),
 
     *intro_lyrics(),
+    Note('rest', beat * 2)
     *intro_lyrics(),
     
     Note('rest', beat * 2),
