@@ -1,4 +1,3 @@
-from concurrent.futures import thread
 import pygame
 pygame.init()
 from Note import Note
@@ -25,14 +24,14 @@ def intro():
 def intro_lyrics():
     return [
         Note('a5', beat),
-        Note('rest', beat / 9),
+        Note.rest(beat / 4),
         Note('a5', beat),
-        Note('rest', beat / 9),
-        Note('a5', beat * 2),
+        Note.rest(beat / 4),
+        Note('a5', beat * 3),
 
         Note('g5', beat),
         Note('f#5', beat),
-        Note('g5', beat),
+        Note('g5', beat * 2),
         Note('a5', beat),
         Note('f#5', beat * 2),
         Note('e5', beat),
@@ -107,38 +106,36 @@ sweet_child_o_mine = [
     Note('d6', beat),
 
     *intro_lyrics(),
-    Note('rest', beat * 2),
+    Note.rest(beat * 2),
     *intro_lyrics(),
     
-    Note('rest', beat * 2),
+    Note.rest(beat * 2),
     Note('a5', beat * 3),
-    Note('rest', beat),
+    Note.rest(beat),
     Note('g5', beat),
-    Note('rest', beat),
+    Note.rest(beat),
     Note('f#5', beat),
-    Note('rest', beat),
+    Note.rest(beat),
     Note('g5', beat),
-    Note('rest', beat),
+    Note.rest(beat),
     Note('d5', beat * 2),
     Note('e5', beat * 2),
     Note('f#5', beat),
     Note('d5', beat * 2),
 
-    Note('rest', beat * 2),
+    Note.rest(beat * 2),
     Note('a5', beat * 3),
-    Note('rest', beat),
+    Note.rest(beat),
     Note('g5', beat),
-    Note('rest', beat),
+    Note.rest(beat),
     Note('f#5', beat),
-    Note('rest', beat),
+    Note.rest(beat),
     Note('g5', beat),
-    Note('rest', beat),
+    Note.rest(beat),
     Note('d5', beat * 2),
     Note('e5', beat * 2),
     Note('f#5', beat),
     Note('d5', beat * 2),
-
-
 ]
 
 def get_base_notes():
