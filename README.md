@@ -19,6 +19,8 @@ To play a note, you can use the `Note` class:
 ```python
 from Note import Note
 Note('C4').play() # Plays middle C for 1 second.
+
+Note('E4', 3).play() # Plays E4 for 3 seconds
 ```
 
 To play a chord, use the `play_chord()` method and pass in a list of `Note`s:
