@@ -9,6 +9,9 @@ class Track:
     def play(self):
         def play_notes():
             for note in self.notes_array:
+                if note is None:
+                    continue
+                
                 note.play(speaker=self.speaker)
 
         self.thread = threading.Thread(target=play_notes)

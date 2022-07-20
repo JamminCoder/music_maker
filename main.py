@@ -140,7 +140,7 @@ sweet_child_o_mine = [
 
 def get_base_notes():
     return [
-        Note('d4', beat * 4),
+        Note('d4', beat * 3),
         Note('f#4', beat * 3),
         Note('g4', beat * 3),
         Note('a4', beat * 2),
@@ -163,7 +163,7 @@ def get_base_notes():
         Note('g4', beat),
         Note('f#4', beat),
         Note('d4', beat),
-        Note('d4', beat * 2)
+        Note('d4', beat * 4)
     ]
 
 

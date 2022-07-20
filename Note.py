@@ -1,3 +1,4 @@
+from importlib.resources import is_resource
 from utils import NOTE_MAP
 from play_tone import Tone
 import threading
@@ -6,18 +7,29 @@ import time
 
 class Note:
     def __init__(self, note, duration=1):
+        self.duration = duration
+        if note == 'rest':
+            self.is_resting = True
+            return
+        else:
+            self.is_resting = False
+
         # Ensures the first character of note is uppercase
         main_note = note[0].upper()
         self.note = main_note + note[1:]
-        self.duration = duration
         self.frequency = NOTE_MAP[self.note]
+        
+        
     
     def play(self, speaker=None):
-        Tone.sine(self.frequency, duration=self.duration, speaker=speaker)
+        if not self.is_resting:
+            Tone.sine(self.frequency, duration=self.duration, speaker=speaker)
+        else:
+            time.sleep(self.duration)
 
     @staticmethod
     def rest(duration):
-        time.sleep(duration)
+        return Note('rest', duration)
 
     @staticmethod
     def play_chord(notes):
