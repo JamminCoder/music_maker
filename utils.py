@@ -37,17 +37,18 @@ def play_tone(frequency, sample_rate=44100, duration=1, speaker=None):
     for s in range(n_samples):
         t = float(s) / sample_rate    # time in seconds
 
+        #grab the x-coordinate of the sine wave at a given time, while constraining the sample to what our mixer is set to with "bits"
+        sin_x = int(round(max_sample * math.sin(2 * math.pi * frequency * t)))
 
         # Control which speaker to play the sound from
         if not speaker:
-            #grab the x-coordinate of the sine wave at a given time, while constraining the sample to what our mixer is set to with "bits"
-            buf[s][0] = int(round(max_sample * math.sin(2 * math.pi * frequency * t)))        # left
-            buf[s][1] = int(round(max_sample * math.sin(2 * math.pi * frequency * t)))    # right
+            buf[s][0] = sin_x # left
+            buf[s][1] = sin_x  # right
        
         elif speaker == 'r':
-            buf[s][1] = int(round(max_sample * math.sin(2 * math.pi * frequency * t)))    # right
+            buf[s][1] = sin_x
         elif speaker == 'l':
-            buf[s][0] = int(round(max_sample * math.sin(2 * math.pi * frequency * t)))        # left
+            buf[s][0] = sin_x
 
     sound = pygame.sndarray.make_sound(buf)
     one_sec = 1000 # Milliseconds
