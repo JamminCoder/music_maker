@@ -6,9 +6,13 @@
 
 # Using the program:
 
-First, install `pygame`. Pygame is needed to create the sound.  
+First, install `pygame` and `numpy`. 
 ```
 pip install pygame
+```
+
+```
+pip install numpy
 ```
 
 Then you can run `main.py`. Doing so will play the "Sweet Child 'O Mine" intro by "Guns 'n Roses".  
