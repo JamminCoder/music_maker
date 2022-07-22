@@ -47,7 +47,7 @@ class Tone:
         time.sleep(duration)
     
     @staticmethod
-    def create_tone_from_array(frequency_array, duration=1):
+    def create_tone_from_list(frequency_array, duration=1):
         tone_threads = []
         
         for freq in frequency_array:

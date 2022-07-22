@@ -1,6 +1,6 @@
 from importlib.resources import is_resource
 from utils import NOTE_MAP
-from play_tone import Tone
+from Tone import Tone
 import threading
 import time
 
